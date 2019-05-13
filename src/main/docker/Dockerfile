@@ -72,7 +72,4 @@ RUN yum -y update && yum -y install wget && yum -y install curl && \
 	wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo && \
 	curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - && \
 	yum -y install yarn && \
-	yum clean all && rm -rf /var/cache/yum/* && \
-	echo 'export PYTHON_MIRROR=http://npm.taobao.org/mirrors/python'   >> /etc/profile && source /etc/profile && \
-    echo 'export SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass'   >> /etc/profile && source /etc/profile
-	
+	yum clean all && rm -rf /var/cache/yum/*
