@@ -1,4 +1,4 @@
-#PermitEmptyPasswords yes
+PermitEmptyPasswords yes
 Host *
 StrictHostKeyChecking no
 UserKnownHostsFile=/dev/null
