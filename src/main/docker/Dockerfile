@@ -3,7 +3,7 @@ from centos
 MAINTAINER jiangyuanlin@163.com
 
 # centos常用命令
-RUN cd /etc/ && curl -O  https://raw.githubusercontent.com/base/master/src/main/centos/etc/yum.conf  &&\
+RUN cd /etc/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/etc/yum.conf  &&\
 	yum -y install   epel-release &&\
 	yum -y install   rpm-build    python-devel python-pip   httpd-tools nmap-ncat ntp subversion git telnet net-tools expect traceroute nethogs tree vim wget zip unzip lsof tcpdump wireshark sysstat iotop iftop iptraf nc iptables lftp dos2unix bridge-utils iproute jq gcc gcc-c++ make libevent libaio numactl.x86_64 kde-l10n-Chinese glibc-common  build-essential libpcre3  pcre*   pcre-devel libpcre3-dev libssl-dev libjpeg* libjpeg-dev libxslt1-dev  libcurl4-gnutls-dev libxml2-dev libmysql++-dev  libpng-dev libmcrypt-dev  libxpm-dev  dos2unix   net-tools telnet openssh-clients libaio expect libarchive lzo  gcc gcc-c++  libtool libtool-ltdl libtool-ltdl-devel ncurses-devel      pcre-devel wget net-tools gcc zlib zlib-devel make openssl-devel unzip    libstdc++-devel  net-tools telnet openssh-clients *ltdl*  file   rpm-build build-essential libpcre3 libpcre3-dev libssl-dev libjpeg* libjpeg-dev libxslt1-dev  libcurl4-gnutls-dev libxml2-dev libmysql++-dev  libpng-dev libmcrypt-dev  libxpm-dev epel-release  dos2unix   net-tools telnet openssh-clients libaio expect libarchive lzo  gcc gcc-c++  libtool libtool-ltdl libtool-ltdl-devel ncurses-devel      pcre-devel wget net-tools gcc zlib zlib-devel make openssl-devel unzip    libstdc++-devel  net-tools telnet openssh-clients *ltdl*  file   rpm-build docker java-devel nmap-ncat ntp subversion git telnet ntpdate net-tools expect traceroute nethogs tree vim wget zip unzip lsof tcpdump wireshark sysstat iotop iptraf nc iptables lftp dos2unix bridge-utils iproute jq  gcc-c++ libaio numactl.x86_64 passwd openssl openssh-server openssh-clients crontabs cronie net-snmp-devel libxml2-devel libcurl-deve libevent libevent-devel  mysql-devel curl-devel  php php-gd php-mysql php-bcmath php-mbstring php-xml curl curl-devel net-snmp   net-snmp-devel perl-DBI  httpd mariadb*  mariadb-devel libxml2-devel  unixODBC unixODBC-devel libssh2 libssh2-devel OpenIPMI-devel openldap openldap-devel  libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel libjpeg.x86_64 libpng.x86_64 freetype.x86_64 libjpeg-devel.x86_64 libpng-devel.x86_64 freetype-devel.x86_64 libxml2*  *libxml2* bzip2-devel *bcmath* *mbstring* openldap openldap-devel libc-client-devel libcurl-devel enchant-devel libpng-devel libXpm-devel freetype-devel  libxslt-devel net-snmp-devel  libc-client-devel libicu-devel unixODBC-devel  aspell-devel readline-devel libxml2-devel libxml2   bzip2 perl pcre2 dos2unix   net-tools telnet openssh-clients libaio expect libarchive lzo  gcc gcc-c++  libtool libtool-ltdl libtool-ltdl-devel ncurses-devel      pcre-devel wget net-tools gcc zlib zlib-devel make openssl-devel unzip    libstdc++-devel  net-tools telnet openssh-clients htop nethogs psacct   &&\
     yum clean all &&\
@@ -11,7 +11,7 @@ RUN cd /etc/ && curl -O  https://raw.githubusercontent.com/base/master/src/main/
     chmod u+x /usr/local/bin/ctop &&\
 	curl -L -k -o /usr/local/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 &&\
     chmod u+x /usr/local/bin/jq &&\    
-	cd /usr/local/bin/ && curl -O https://raw.githubusercontent.com/base/master/src/main/centos/usr/local/bin/natapp  &&\
+	cd /usr/local/bin/ && curl -O https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/usr/local/bin/natapp  &&\
 	chmod u+x /usr/local/bin/natapp
 
 # 时区设置为东八区和utf8编码支持
@@ -27,30 +27,29 @@ RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config  &&\
     ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key  &&\
     ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key &&\
     mkdir -pv /root/.ssh/ &&\
-    cd /root/.ssh/ && curl -O  https://raw.githubusercontent.com/base/master/src/main/centos/root/.ssh/authorized_keys  &&\
-    cd /root/.ssh/ && curl -O  https://raw.githubusercontent.com/base/master/src/main/centos/root/.ssh/config  &&\
-    cd /root/.ssh/ && curl -O  https://raw.githubusercontent.com/base/master/src/main/centos/root/.ssh/id_rsa  &&\
-    cd /root/.ssh/ && curl -O  https://raw.githubusercontent.com/base/master/src/main/centos/root/.ssh/id_rsa.pub  &&\
+    cd /root/.ssh/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/root/.ssh/authorized_keys  &&\
+    cd /root/.ssh/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/root/.ssh/config  &&\
+    cd /root/.ssh/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/root/.ssh/id_rsa  &&\
+    cd /root/.ssh/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/root/.ssh/id_rsa.pub  &&\
     chmod -R 600 /root/.ssh/ &&\
-    cd /etc/pam.d/ && curl -O  https://raw.githubusercontent.com/base/master/src/main/centos/etc/pam.d/sshd  &&\
+    cd /etc/pam.d/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/etc/pam.d/sshd  &&\
     chmod -R 644 /etc/pam.d/sshd &&\
-    cd /etc/ssh/ && curl -O  https://raw.githubusercontent.com/base/master/src/main/centos/etc/ssh/sshd_config  &&\
+    cd /etc/ssh/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/etc/ssh/sshd_config  &&\
     chmod -R 600 /etc/ssh/sshd_config
 
 # docker   
-RUN cd /etc/docker/ && curl -O  https://raw.githubusercontent.com/base/master/src/main/centos/etc/docker/daemon.json &&\
-    cd /lib/systemd/system/ && curl -O  https://raw.githubusercontent.com/base/master/src/main/centos/lib/systemd/system/docker.service
+RUN cd /etc/docker/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/etc/docker/daemon.json &&\
+    cd /lib/systemd/system/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/lib/systemd/system/docker.service
 
 # java   
 RUN echo "export JAVA_HOME=$(ls -lrt /usr/bin/java | awk '{print  $11}' | xargs ls -lrt | awk '{print  $11}' | awk -F jre '{print $1}')" >> /etc/profile && source /etc/profile   &&\
     echo "export JRE_HOME=$JAVA_HOME/jre" >> /etc/profile && source /etc/profile   &&\
     echo "export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH" >> /etc/profile && source /etc/profile   &&\
     echo 'export JAVA_OPTS="$JAVA_OPTS -server -Xmx2048M  -Dfile.encoding=UTF-8  -Dsun.jnu.encoding=UTF-8 -Duser.language=zh  -Duser.timezone=Asia/Shanghai"'   >> /etc/profile && source /etc/profile   &&\
-    cd /usr/bin/ && curl -O  https://raw.githubusercontent.com/base/master/src/main/centos/usr/bin/jstatd.all.policy
+    cd /usr/bin/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/usr/bin/jstatd.all.policy
 
 # nginx php python
 RUN yum -y install nginx php php-fpm git logrotate npm && \
-    yum clean all && \
     sed -i '/;cgi.fix_pathinfo=1/c\cgi.fix_pathinfo=0' /etc/php.ini && \
     sed -i '/listen = 127.0.0.1:9000/c\listen = /var/run/php-fpm/php-fpm.sock' /etc/php-fpm.d/www.conf && \
     sed -i '/;listen.owner = nobody/c\listen.owner = nobody' /etc/php-fpm.d/www.conf && \
