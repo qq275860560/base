@@ -6,7 +6,7 @@ MAINTAINER jiangyuanlin@163.com
 RUN cd /etc/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/etc/yum.conf  &&\
 	yum -y install   epel-release &&\
 	yum -y install   rpm-build    python-devel python-pip   httpd-tools nmap-ncat ntp subversion git telnet net-tools expect traceroute nethogs tree vim wget zip unzip lsof tcpdump wireshark sysstat iotop iftop iptraf nc iptables lftp dos2unix bridge-utils iproute jq gcc gcc-c++ make libevent libaio numactl.x86_64 kde-l10n-Chinese glibc-common  build-essential libpcre3  pcre*   pcre-devel libpcre3-dev libssl-dev libjpeg* libjpeg-dev libxslt1-dev  libcurl4-gnutls-dev libxml2-dev libmysql++-dev  libpng-dev libmcrypt-dev  libxpm-dev  dos2unix   net-tools telnet openssh-clients libaio expect libarchive lzo  gcc gcc-c++  libtool libtool-ltdl libtool-ltdl-devel ncurses-devel      pcre-devel wget net-tools gcc zlib zlib-devel make openssl-devel unzip    libstdc++-devel  net-tools telnet openssh-clients *ltdl*  file   rpm-build build-essential libpcre3 libpcre3-dev libssl-dev libjpeg* libjpeg-dev libxslt1-dev  libcurl4-gnutls-dev libxml2-dev libmysql++-dev  libpng-dev libmcrypt-dev  libxpm-dev epel-release  dos2unix   net-tools telnet openssh-clients libaio expect libarchive lzo  gcc gcc-c++  libtool libtool-ltdl libtool-ltdl-devel ncurses-devel      pcre-devel wget net-tools gcc zlib zlib-devel make openssl-devel unzip    libstdc++-devel  net-tools telnet openssh-clients *ltdl*  file   rpm-build docker java-devel nmap-ncat ntp subversion git telnet ntpdate net-tools expect traceroute nethogs tree vim wget zip unzip lsof tcpdump wireshark sysstat iotop iptraf nc iptables lftp dos2unix bridge-utils iproute jq  gcc-c++ libaio numactl.x86_64 passwd openssl openssh-server openssh-clients crontabs cronie net-snmp-devel libxml2-devel libcurl-deve libevent libevent-devel  mysql-devel curl-devel  php php-gd php-mysql php-bcmath php-mbstring php-xml curl curl-devel net-snmp   net-snmp-devel perl-DBI  httpd mariadb*  mariadb-devel libxml2-devel  unixODBC unixODBC-devel libssh2 libssh2-devel OpenIPMI-devel openldap openldap-devel  libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel libjpeg.x86_64 libpng.x86_64 freetype.x86_64 libjpeg-devel.x86_64 libpng-devel.x86_64 freetype-devel.x86_64 libxml2*  *libxml2* bzip2-devel *bcmath* *mbstring* openldap openldap-devel libc-client-devel libcurl-devel enchant-devel libpng-devel libXpm-devel freetype-devel  libxslt-devel net-snmp-devel  libc-client-devel libicu-devel unixODBC-devel  aspell-devel readline-devel libxml2-devel libxml2   bzip2 perl pcre2 dos2unix   net-tools telnet openssh-clients libaio expect libarchive lzo  gcc gcc-c++  libtool libtool-ltdl libtool-ltdl-devel ncurses-devel      pcre-devel wget net-tools gcc zlib zlib-devel make openssl-devel unzip    libstdc++-devel  net-tools telnet openssh-clients htop nethogs psacct   &&\
-    yum clean all &&\
+    yum clean all && rm -rf /var/cache/yum/* &&\
     curl -L -k -o /usr/local/bin/ctop    https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linux-amd64 &&\
     chmod u+x /usr/local/bin/ctop &&\
 	curl -L -k -o /usr/local/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 &&\
@@ -57,13 +57,13 @@ RUN yum -y install nginx php php-fpm git logrotate npm && \
     sed -i '/user = apache/c\user = nginx' /etc/php-fpm.d/www.conf && \
     sed -i '/group = apache/c\group = nginx' /etc/php-fpm.d/www.conf && \
     yum -y install python-setuptools && \
-    yum clean all  
+    yum clean all && rm -rf /var/cache/yum/*  
 
 
 # go
 RUN mkdir -p /go && chmod -R 777 /go && \
     yum -y install git golang && \
-    yum clean all    
+    yum clean all && rm -rf /var/cache/yum/*    
 
 # node
 RUN yum -y update && yum -y install wget && yum -y install curl && \
@@ -72,7 +72,7 @@ RUN yum -y update && yum -y install wget && yum -y install curl && \
 	wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo && \
 	curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - && \
 	yum -y install yarn && \
-	yum clean all && \
+	yum clean all && rm -rf /var/cache/yum/* && \
 	echo 'export PYTHON_MIRROR=http://npm.taobao.org/mirrors/python'   >> /etc/profile && source /etc/profile && \
     echo 'export SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass'   >> /etc/profile && source /etc/profile
 	
