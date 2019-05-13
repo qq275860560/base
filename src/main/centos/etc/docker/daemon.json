@@ -1,0 +1,4 @@
+{
+        "insecure-registries": ["132.122.237.68:5000","132.122.237.227:5000","132.122.237.215:5000"],
+        "registry-mirrors":["http://d0eebd83.m.daocloud.io"]       
+}
