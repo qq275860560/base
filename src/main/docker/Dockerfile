@@ -24,8 +24,7 @@ RUN  rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/local
      echo "alias grep='grep --color=auto'" >> /etc/profile
 
 # ssh
-RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config  &&\
-	echo '123456' | passwd --stdin root  &&\
+RUN echo '123456' | passwd --stdin root  &&\
     echo "root   ALL=(ALL)       ALL" >> /etc/sudoers &&\
     ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key  &&\
     ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key &&\
