@@ -8,6 +8,7 @@
 ## centos常用命令
 ## 时区设置为东八区和utf8编码支持
 ## ssh
+## gpg
 ## docker
 ## java
 ## nginx php python go node
