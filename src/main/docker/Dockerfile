@@ -83,7 +83,7 @@ RUN mkdir -p /go && chmod -R 777 /go && \
 
 # node
 RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - && \
-	 && yum -y install nodejs && npm -g up	 && \
+	yum -y install nodejs && npm -g up	 && \
 	yum -y clean all && rm -rf /var/cache/yum/*
 	
 RUN	wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo && \
