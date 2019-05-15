@@ -44,7 +44,7 @@ RUN echo '123456' | passwd --stdin root  &&\
     chmod -R 600 /etc/ssh/sshd_config
 
 # gpg
-RUN cd /root/.ssh/ &&\
+RUN mkdir -pv /root/.gnupg/ && cd /root/.gnupg/ &&\
     curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/root/.gnupg/gpg.conf  &&\
     curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/root/.gnupg/pubring.gpg  &&\
     curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/root/.gnupg/pubring.gpg~  &&\
@@ -98,10 +98,5 @@ RUN	wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo && \
 RUN wget https://bootstrap.pypa.io/get-pip.py && \
     python get-pip.py	
 
-# dockerize install
-#ENV DOCKERIZE_VERSION v0.6.0
-#RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-#&&  tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-#&&  rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz	
-#rm -rf /var/cache/yum/*  /tmp/* /var/tmp/* /tmp/* /var/tmp/*
+
 		
