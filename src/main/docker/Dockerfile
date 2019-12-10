@@ -12,8 +12,6 @@ RUN cd /etc/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/mast
     chmod u+x /usr/local/bin/ctop &&\
 	curl -L -k -o /usr/local/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 &&\
     chmod u+x /usr/local/bin/jq &&\    
-	cd /usr/local/bin/ && curl -O https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/usr/local/bin/natapp  &&\
-	chmod u+x /usr/local/bin/natapp &&\
 	yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
 
 # 时区设置为东八区和utf8编码支持
