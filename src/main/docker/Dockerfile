@@ -25,9 +25,11 @@ RUN yum -y install    gnupg rpm-build    python-devel python-pip   httpd-tools n
 
 # 时区设置为东八区和utf8编码支持
 RUN  rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &&\
-     echo 'ZONE="Asia/Shanghai"' > /etc/sysconfig/clock &&\
-     localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 &&\
-     echo 'export LANG=zh_CN.UTF-8'  >> /etc/profile && source /etc/profile &&\
+     echo 'ZONE="Asia/Shanghai"' > /etc/sysconfig/clock 
+
+RUN  localedef -c -f UTF-8 -i zh_CN zh_CN.utf8  
+
+RUN  echo 'export LANG=zh_CN.UTF-8'  >> /etc/profile && source /etc/profile &&\
      echo 'export LC_ALL=$LANG'  >> /etc/profile && source /etc/profile &&\     
      echo 'export LANGUAGE=zh_CN:zh'  >> /etc/profile && source /etc/profile   &&\
      echo "alias ll='ls -l --color=auto'" >> /etc/profile &&\
