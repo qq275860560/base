@@ -7,7 +7,6 @@ RUN cd /etc/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/mast
 	yum -y update &&\
 	yum -y install   epel-release &&\
 	yum -y groupinstall "Development tools" &&\
-	yum -y groupinstall "Chinese-support" &&\
 	yum -y groupinstall "fonts" &&\
     curl -L -k -o /usr/local/bin/ctop    https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linux-amd64 &&\
     chmod u+x /usr/local/bin/ctop &&\
