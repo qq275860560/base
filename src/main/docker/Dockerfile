@@ -7,6 +7,7 @@ RUN cd /etc/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/mast
 	yum -y update &&\
 	yum -y install   epel-release &&\
 	yum -y groupinstall "Development tools" && \
+	yum -y groupinstall Chinese-support && \
     curl -L -k -o /usr/local/bin/ctop    https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linux-amd64 &&\
     chmod u+x /usr/local/bin/ctop &&\
 	curl -L -k -o /usr/local/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 &&\
@@ -26,7 +27,7 @@ RUN yum -y install    gnupg rpm-build    python-devel python-pip   httpd-tools n
 # 时区设置为东八区和utf8编码支持
 RUN  rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &&\
      echo 'ZONE="Asia/Shanghai"' > /etc/sysconfig/clock 
-
+     
 RUN  localedef -c -f UTF-8 -i zh_CN zh_CN.utf8  
 
 RUN  echo 'export LANG=zh_CN.UTF-8'  >> /etc/profile && source /etc/profile &&\
