@@ -65,7 +65,8 @@ RUN mkdir -pv /root/.gnupg/ && cd /root/.gnupg/ &&\
     curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/root/.gnupg/trustdb.gpg
 
 # docker   
-RUN cd /etc/docker/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/etc/docker/daemon.json &&\
+RUN yum -y install docker &&\
+    cd /etc/docker/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/etc/docker/daemon.json &&\
     cd /lib/systemd/system/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/lib/systemd/system/docker.service
 
 # java   
