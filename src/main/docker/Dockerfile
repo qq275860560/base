@@ -29,7 +29,7 @@ RUN  rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/local
      echo 'ZONE="Asia/Shanghai"' > /etc/sysconfig/clock 
 
 # 中文语言     
-RUN  yum reinstall glibc-common && localedef -c -f UTF-8 -i zh_CN zh_CN.utf8  
+RUN  yum -y reinstall glibc-common && localedef -c -f UTF-8 -i zh_CN zh_CN.utf8  
 
 RUN  echo 'export LANG=zh_CN.UTF-8'  >> /etc/profile && source /etc/profile &&\
      echo 'export LC_ALL=$LANG'  >> /etc/profile && source /etc/profile &&\     
