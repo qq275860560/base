@@ -39,7 +39,8 @@ RUN  echo 'export LANG=zh_CN.UTF-8'  >> /etc/profile && source /etc/profile &&\
 
 
 # ssh
-RUN echo '123456' | passwd --stdin root  &&\
+RUN yum -y install passwd &&\
+    echo '123456' | passwd --stdin root  &&\
     echo "root   ALL=(ALL)       ALL" >> /etc/sudoers &&\
     ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key  &&\
     ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key &&\
