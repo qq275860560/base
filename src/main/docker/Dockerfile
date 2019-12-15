@@ -14,7 +14,7 @@ RUN cd /etc/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/mast
     chmod u+x /usr/local/bin/jq &&\    
 	yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
 
-RUN yum -y install   curl gcc libssh2-devel openldap libtool-ltdl bzip2 wireshark curl-devel telnet unixODBC-devel libevent-devel vim openssh-clients ntpdate zip kde-l10n-Chinese libxslt *mbstring* *bcmath* gcc-c++ libpcre3 php-mysql httpd mariadb* zlib-devel php-xml libarchive passwd psacct openssl php-mbstring gnupg libpng-dev cronie readline-devel glibc-common libxslt1-dev lftp crontabs mysql-devel perl-DBI iptraf jq wget libstdc++-devel libxml2-dev gmp unzip file OpenIPMI-devel libicu-devel libpcre3-dev net-snmp bzip2-devel libcurl4-gnutls-dev libpng-devel net-tools php-gd libevent libxml2* libssl-dev epel-release aspell-devel numactl libjpeg-dev ntp expect libtool php-bcmath net-snmp-devel libXpm-devel php rpm-build pcre-devel iproute libtool-ltdl-devel libjpeg ncurses-devel dos2unix libxslt-devel iotop unixODBC lzo openssl-devel gmp-devel tree lsof httpd-tools libmcrypt-dev nc openldap-devel nmap-ncat libcurl-deve python-devel python-pip iptables enchant-devel libpng libssh2 tcpdump traceroute docker libc-client-devel sysstat libcurl git build-essential pcre2 libmysql++-dev perl htop make pcre* libxml2-devel libcurl-devel readline libjpeg-devel libaio *ltdl* libmcrypt *libxml2* libxml2 freetype-devel libjpeg* iftop zlib mariadb-devel subversion libmcrypt-devel libxpm-dev openssh-server freetype bridge-utils || true
+RUN yum -y install   curl gcc libssh2-devel openldap libtool-ltdl bzip2 wireshark curl-devel telnet unixODBC-devel libevent-devel vim openssh-clients ntpdate zip kde-l10n-Chinese libxslt *mbstring* *bcmath* gcc-c++ libpcre3 php-mysql httpd mariadb* zlib-devel php-xml libarchive passwd psacct openssl php-mbstring gnupg libpng-dev cronie readline-devel glibc-common libxslt1-dev lftp crontabs mysql-devel perl-DBI iptraf jq wget libstdc++-devel libxml2-dev gmp unzip file OpenIPMI-devel libicu-devel libpcre3-dev net-snmp bzip2-devel libcurl4-gnutls-dev libpng-devel net-tools php-gd libevent libxml2* libssl-dev epel-release aspell-devel numactl libjpeg-dev ntp expect libtool php-bcmath net-snmp-devel libXpm-devel php rpm-build pcre-devel iproute libtool-ltdl-devel libjpeg ncurses-devel dos2unix libxslt-devel iotop unixODBC lzo openssl-devel gmp-devel tree lsof httpd-tools libmcrypt-dev nc openldap-devel nmap-ncat libcurl-deve python-devel python-pip iptables enchant-devel libpng libssh2 tcpdump traceroute libc-client-devel sysstat libcurl git build-essential pcre2 libmysql++-dev perl htop make pcre* libxml2-devel libcurl-devel readline libjpeg-devel libaio *ltdl* libmcrypt *libxml2* libxml2 freetype-devel libjpeg* iftop zlib mariadb-devel subversion libmcrypt-devel libxpm-dev openssh-server freetype bridge-utils || true
 
 # 时区设置为东八区和utf8编码支持
 RUN  rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &&\
@@ -57,9 +57,7 @@ RUN mkdir -pv /root/.gnupg/ && cd /root/.gnupg/ &&\
     curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/root/.gnupg/trustdb.gpg
 
 # docker   
-RUN yum -y install docker &&\
-    cd /etc/docker/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/etc/docker/daemon.json &&\
-    cd /lib/systemd/system/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/lib/systemd/system/docker.service
+RUN yum -y install docker
 
 # java   
 RUN yum -y install java-1.8.0-openjdk-devel &&\    
