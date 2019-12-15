@@ -76,7 +76,6 @@ RUN yum -y install nginx php php-fpm git logrotate npm && \
     sed -i '/;listen.group = nobody/c\listen.group = nobody' /etc/php-fpm.d/www.conf && \
     sed -i '/user = apache/c\user = nginx' /etc/php-fpm.d/www.conf && \
     sed -i '/group = apache/c\group = nginx' /etc/php-fpm.d/www.conf && \
-    yum -y install python-setuptools && \
     yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*  
 
 
