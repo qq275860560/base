@@ -68,7 +68,7 @@ RUN yum -y install java-1.8.0-openjdk-devel &&\
     cd /usr/bin/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/usr/bin/jstatd.all.policy &&\
     yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
     
-# nginx php python
+# nginx php
 RUN yum -y install nginx php php-fpm git logrotate npm && \
     sed -i '/;cgi.fix_pathinfo=1/c\cgi.fix_pathinfo=0' /etc/php.ini && \
     sed -i '/listen = 127.0.0.1:9000/c\listen = /var/run/php-fpm/php-fpm.sock' /etc/php-fpm.d/www.conf && \
