@@ -14,7 +14,7 @@ RUN cd /etc/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/mast
 
 RUN yum -y install   vim curl wget     
 
-RUN yum -y install ntpdate jq tree lsof    expect  cronie     dos2unix  
+RUN yum -y install  jq tree lsof    expect  cronie     dos2unix  
 
 RUN yum -y install   zip unzip
 
