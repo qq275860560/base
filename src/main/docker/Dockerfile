@@ -88,7 +88,7 @@ RUN mkdir -p /go && chmod -R 777 /go && \
 RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - && \
 	yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
 	
-RUN	wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo && \
+RUN cd /etc/yum.repos.d/ && 	curl -O https://dl.yarnpkg.com/rpm/yarn.repo && \
 	yum -y install yarn && \	
 	yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
 
@@ -97,7 +97,7 @@ RUN	wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo && \
 #	 yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
 
 # pip
-RUN wget https://bootstrap.pypa.io/get-pip.py && \
+RUN cd /tmp && curl -O https://bootstrap.pypa.io/get-pip.py && \
     python get-pip.py	
 
 
