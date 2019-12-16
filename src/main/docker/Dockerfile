@@ -10,8 +10,6 @@ RUN cd /etc/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/mast
 	yum -y groupinstall  "fonts" &&\
     curl -L -k -o /usr/local/bin/ctop    https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linux-amd64 &&\
     chmod u+x /usr/local/bin/ctop &&\
-	curl -L -k -o /usr/local/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 &&\
-    chmod u+x /usr/local/bin/jq &&\    
 	yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
 
 RUN yum -y install   vim curl wget     
