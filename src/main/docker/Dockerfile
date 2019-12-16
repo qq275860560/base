@@ -14,14 +14,28 @@ RUN cd /etc/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/mast
     chmod u+x /usr/local/bin/jq &&\    
 	yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
 
-RUN yum -y install   curl gcc libssh2-devel openldap libtool-ltdl bzip2 wireshark curl-devel telnet unixODBC-devel libevent-devel vim openssh-clients ntpdate zip kde-l10n-Chinese libxslt *mbstring* *bcmath* gcc-c++ libpcre3 php-mysql httpd mariadb* zlib-devel php-xml libarchive passwd psacct openssl php-mbstring gnupg libpng-dev cronie readline-devel glibc-common libxslt1-dev lftp crontabs mysql-devel perl-DBI iptraf jq wget libstdc++-devel libxml2-dev gmp unzip file OpenIPMI-devel libicu-devel libpcre3-dev net-snmp bzip2-devel libcurl4-gnutls-dev libpng-devel net-tools php-gd libevent libxml2* libssl-dev epel-release aspell-devel numactl libjpeg-dev ntp expect libtool php-bcmath net-snmp-devel libXpm-devel php rpm-build pcre-devel iproute libtool-ltdl-devel libjpeg ncurses-devel dos2unix libxslt-devel iotop unixODBC lzo openssl-devel gmp-devel tree lsof httpd-tools libmcrypt-dev nc openldap-devel nmap-ncat libcurl-deve python-devel python-pip iptables enchant-devel libpng libssh2 tcpdump traceroute libc-client-devel sysstat libcurl git build-essential pcre2 libmysql++-dev perl htop make pcre* libxml2-devel libcurl-devel readline libjpeg-devel libaio *ltdl* libmcrypt *libxml2* libxml2 freetype-devel libjpeg* iftop zlib mariadb-devel subversion libmcrypt-devel libxpm-dev openssh-server freetype bridge-utils || true
+RUN yum -y install   vim curl wget     
+
+RUN yum -y install ntpdate jq tree lsof    expect  cronie     dos2unix  
+
+RUN yum -y install   zip unzip
+
+RUN yum -y install   gcc gcc-c++ make
+
+RUN yum -y install   telnet wireshark net-tools  tcpdump traceroute  nc bridge-utils iptables
+
+RUN yum -y install   subversion git
+
+RUN yum -y install   openssh-server openssh-clients   passwd openssl  
+
+RUN yum -y install   libssh2-devel openldap libtool-ltdl     unixODBC-devel libevent-devel      libxslt *mbstring* *bcmath*  libpcre3 php-mysql httpd mariadb* zlib-devel php-xml libarchive psacct  php-mbstring gnupg libpng-dev  readline-devel  libxslt1-dev lftp crontabs mysql-devel perl-DBI iptraf  libstdc++-devel libxml2-dev gmp  file OpenIPMI-devel libicu-devel libpcre3-dev net-snmp bzip2-devel libcurl4-gnutls-dev libpng-devel  php-gd libevent libxml2* libssl-dev aspell-devel numactl libjpeg-dev ntplibtool php-bcmath net-snmp-devel libXpm-devel php rpm-build pcre-devel iproute libtool-ltdl-devel libjpeg ncurses-devel libxslt-devel iotop unixODBC lzo openssl-devel gmp-devel  httpd-tools libmcrypt-dev openldap-devel nmap-ncat libcurl-deve python-devel python-pip  enchant-devel libpng libssh2 libc-client-devel sysstat libcurl build-essential pcre2 libmysql++-dev perl htop pcre* libxml2-devel libcurl-devel readline libjpeg-devel libaio *ltdl* libmcrypt *libxml2* libxml2 freetype-devel libjpeg* iftop zlib mariadb-devel  libmcrypt-devel libxpm-dev  freetype  || true
 
 # 时区设置为东八区和utf8编码支持
 RUN  rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &&\
      echo 'ZONE="Asia/Shanghai"' > /etc/sysconfig/clock 
 
 # 中文语言     
-#RUN  yum -y reinstall kde-l10n-Chinese  && yum -y reinstall glibc-common && localedef -c -f UTF-8 -i zh_CN zh_CN.utf8  
+#RUN  yum -y reinstall  kde-l10n-Chinese && yum -y reinstall glibc-common && localedef -c -f UTF-8 -i zh_CN zh_CN.utf8  
 
 RUN  echo 'export LANG=zh_CN.UTF-8'  >> /etc/profile && source /etc/profile &&\
      echo 'export LC_ALL=$LANG'  >> /etc/profile && source /etc/profile &&\     
