@@ -26,7 +26,7 @@ RUN yum -y install   subversion git
 
 RUN yum -y install   openssh-server openssh-clients   passwd openssl  
 
-RUN yum -y install   libssh2-devel openldap libtool-ltdl     unixODBC-devel libevent-devel      libxslt *mbstring* *bcmath*  libpcre3 php-mysql httpd mariadb* zlib-devel php-xml libarchive psacct  php-mbstring gnupg libpng-dev  readline-devel  libxslt1-dev lftp crontabs mysql-devel perl-DBI iptraf  libstdc++-devel libxml2-dev gmp  file OpenIPMI-devel libicu-devel libpcre3-dev net-snmp bzip2-devel libcurl4-gnutls-dev libpng-devel  php-gd libevent libxml2* libssl-dev aspell-devel numactl libjpeg-dev ntplibtool php-bcmath net-snmp-devel libXpm-devel php rpm-build pcre-devel iproute libtool-ltdl-devel libjpeg ncurses-devel libxslt-devel iotop unixODBC lzo openssl-devel gmp-devel  httpd-tools libmcrypt-dev openldap-devel nmap-ncat libcurl-deve python-devel python-pip  enchant-devel libpng libssh2 libc-client-devel sysstat libcurl build-essential pcre2 libmysql++-dev perl htop pcre* libxml2-devel libcurl-devel readline libjpeg-devel libaio *ltdl* libmcrypt *libxml2* libxml2 freetype-devel libjpeg* iftop zlib mariadb-devel  libmcrypt-devel libxpm-dev  freetype  || true
+RUN yum -y install   libssh2-devel openldap libtool-ltdl     unixODBC-devel libevent-devel      libxslt *mbstring* *bcmath*  libpcre3 php-mysql httpd mariadb* zlib-devel php-xml libarchive psacct  php-mbstring gnupg libpng-dev  readline-devel  libxslt1-dev lftp crontabs mysql-devel perl-DBI iptraf  libstdc++-devel libxml2-dev gmp  file OpenIPMI-devel libicu-devel libpcre3-dev net-snmp bzip2-devel libcurl4-gnutls-dev libpng-devel  php-gd libevent libxml2* libssl-dev aspell-devel numactl libjpeg-dev ntplibtool php-bcmath net-snmp-devel libXpm-devel php rpm-build pcre-devel iproute libtool-ltdl-devel libjpeg ncurses-devel libxslt-devel iotop unixODBC lzo openssl-devel gmp-devel  httpd-tools libmcrypt-dev openldap-devel nmap-ncat libcurl-deve   enchant-devel libpng libssh2 libc-client-devel sysstat libcurl build-essential pcre2 libmysql++-dev perl htop pcre* libxml2-devel libcurl-devel readline libjpeg-devel libaio *ltdl* libmcrypt *libxml2* libxml2 freetype-devel libjpeg* iftop zlib mariadb-devel  libmcrypt-devel libxpm-dev  freetype  || true
 
 # 时区设置为东八区和utf8编码支持
 RUN  rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &&\
@@ -101,6 +101,9 @@ RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
 	
 # yarn
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash -	
+
+# python
+RUN yum -y install python36
 
 # pip
 RUN cd /tmp && curl -O https://bootstrap.pypa.io/get-pip.py && \
