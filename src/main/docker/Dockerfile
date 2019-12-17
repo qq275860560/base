@@ -100,7 +100,7 @@ RUN mkdir -p /go && chmod -R 777 /go && \
 RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - 
 	
 # yarn
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash && \	
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash -	
 
 # pip
 RUN cd /tmp && curl -O https://bootstrap.pypa.io/get-pip.py && \
