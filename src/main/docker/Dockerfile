@@ -97,12 +97,9 @@ RUN mkdir -p /go && chmod -R 777 /go && \
     yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*    
 
 # node
-RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - && \
-	yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
+RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - 
 	
-RUN cd /etc/yum.repos.d/ && 	curl -O https://dl.yarnpkg.com/rpm/yarn.repo && \
-	yum -y install yarn && \	
-	yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
+RUN cd /etc/yum.repos.d/ && 	curl -O https://dl.yarnpkg.com/rpm/yarn.repo &&	yum -y install yarn 
 
 # yarn
 #RUN curl -o- -L https://yarnpkg.com/install.sh | bash && \	
@@ -112,5 +109,5 @@ RUN cd /etc/yum.repos.d/ && 	curl -O https://dl.yarnpkg.com/rpm/yarn.repo && \
 RUN cd /tmp && curl -O https://bootstrap.pypa.io/get-pip.py && \
     python get-pip.py	
 
-
+RUN  yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
 		
