@@ -20,7 +20,7 @@ RUN yum -y install   zip unzip
 
 RUN yum -y install   gcc gcc-c++ make
 
-RUN yum -y install   telnet wireshark net-tools  tcpdump traceroute  nc bridge-utils iptables
+RUN yum -y install   telnet wireshark net-tools  tcpdump traceroute  nc iptables
 
 RUN yum -y install   subversion git
 
