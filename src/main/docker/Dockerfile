@@ -106,8 +106,8 @@ RUN curl -o- -L https://yarnpkg.com/install.sh | bash -
 RUN yum -y install python36
 
 # pip
-RUN cd /tmp && curl -O https://bootstrap.pypa.io/get-pip.py && \
-    python get-pip.py	
+#RUN cd /tmp && curl -O https://bootstrap.pypa.io/get-pip.py && \
+#    python get-pip.py	
 
 RUN  yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
 		
