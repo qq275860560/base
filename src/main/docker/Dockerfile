@@ -96,18 +96,18 @@ RUN mkdir -p /go && chmod -R 777 /go && \
     yum -y install git golang && \
     yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*    
 
-# node
-RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - 
-	
-# yarn
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash -	
-
 # python
 RUN yum -y install python36
 
 # pip
 #RUN cd /tmp && curl -O https://bootstrap.pypa.io/get-pip.py && \
-#    python get-pip.py	
+#    python get-pip.py
+
+# node
+RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - 
+	
+# yarn
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash -		
 
 RUN  yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
 		
