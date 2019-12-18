@@ -102,8 +102,5 @@ RUN yum -y install python36
 # node
 RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - 
 	
-# yarn
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash -		
-
 RUN  yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
 		
