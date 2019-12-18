@@ -35,9 +35,11 @@ RUN  rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/local
 RUN  yum -y install  langpacks-zh_CN.noarch && yum -y reinstall glibc-common && localedef -c -f UTF-8 -i zh_CN zh_CN.utf8  &&\
      echo 'export LANG=zh_CN.UTF-8'  >> /etc/profile && source /etc/profile &&\
      echo 'export LANGUAGE=zh_CN:zh'  >> /etc/profile && source /etc/profile   &&\
-     echo 'export LC_ALL=zh_CN.UTF-8'  >> /etc/profile && source /etc/profile &&\     
-     echo "alias ll='ls -l --color=auto'" >> /etc/profile &&\
-     echo "alias grep='grep --color=auto'" >> /etc/profile
+     echo 'export LC_ALL=zh_CN.UTF-8'  >> /etc/profile && source /etc/profile     
+
+# 设置别名
+RUN echo "alias ll='ls -l --color=auto'" >> /etc/profile &&\
+    echo "alias grep='grep --color=auto'" >> /etc/profile
 
 
 # ssh
