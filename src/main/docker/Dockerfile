@@ -32,7 +32,7 @@ RUN  rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/local
      echo 'ZONE="Asia/Shanghai"' > /etc/sysconfig/clock 
 
 # 中文语言     
-#RUN  yum -y reinstall  kde-l10n-Chinese && yum -y reinstall glibc-common && localedef -c -f UTF-8 -i zh_CN zh_CN.utf8  
+RUN  yum -y reinstall  kde-l10n-Chinese && yum -y reinstall glibc-common && localedef -c -f UTF-8 -i zh_CN zh_CN.utf8  
 
 RUN  echo 'export LANG=zh_CN.UTF-8'  >> /etc/profile && source /etc/profile &&\
      echo 'export LANGUAGE=zh_CN:zh'  >> /etc/profile && source /etc/profile   &&\
@@ -76,8 +76,7 @@ RUN yum -y install java-1.8.0-openjdk-devel &&\
     echo "export JRE_HOME=$JAVA_HOME/jre" >> /etc/profile && source /etc/profile   &&\
     echo "export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH" >> /etc/profile && source /etc/profile   &&\
     echo 'export JAVA_OPTS="$JAVA_OPTS -server -Xmx2048M  -Dfile.encoding=UTF-8  -Dsun.jnu.encoding=UTF-8 -Duser.language=zh  -Duser.timezone=Asia/Shanghai"'   >> /etc/profile && source /etc/profile   &&\
-    cd /usr/bin/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/usr/bin/jstatd.all.policy &&\
-    yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*
+    cd /usr/bin/ && curl -O  https://raw.githubusercontent.com/qq275860560/base/master/src/main/centos/usr/bin/jstatd.all.policy 
     
 # nginx php
 RUN yum -y install nginx php php-fpm git logrotate npm && \
@@ -86,14 +85,11 @@ RUN yum -y install nginx php php-fpm git logrotate npm && \
     sed -i '/;listen.owner = nobody/c\listen.owner = nobody' /etc/php-fpm.d/www.conf && \
     sed -i '/;listen.group = nobody/c\listen.group = nobody' /etc/php-fpm.d/www.conf && \
     sed -i '/user = apache/c\user = nginx' /etc/php-fpm.d/www.conf && \
-    sed -i '/group = apache/c\group = nginx' /etc/php-fpm.d/www.conf && \
-    yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*  
-
+    sed -i '/group = apache/c\group = nginx' /etc/php-fpm.d/www.conf &
 
 # go
 RUN mkdir -p /go && chmod -R 777 /go && \
-    yum -y install git golang && \
-    yum -y clean all && rm -rf /var/cache/yum/*  /tmp/* /var/tmp/*    
+    yum -y install git golang   
 
 # python
 RUN yum -y install python36
